@@ -8,6 +8,7 @@ wg_dns={{ wg_dns | default('1.1.1.1') }}
 wg_tunnel='{{ wg_tunnel | default('split') }}'
 
 # optional options
-{% if wg_users is defined %}wg_users='{{ wg_users }}'{% endif %}{{''}}
-{% if wg_repo is defined %}wg_repo='{{ wg_repo }}'{% endif %}{{''}}
-{% if wg_credential is defined %}wg_credential='{{ wg_credential }}'{% endif %}{{''}}
+{% if wg_users is defined %}wg_users='{{ wg_users }}'{% else %}#wg_users='john,jane,jules,juan,jose'{% endif %}
+{% if wg_repo is defined %}wg_repo='{{ wg_repo }}'{% else %}#wg_repo='https://github.com/YOUR/GITHUB/REPO'{% endif %}
+# get your token from https://github.com/settings/tokens
+{% if wg_credential is defined %}wg_credential='{{ wg_credential }}'{% else %}#wg_credential='YOUR_GITHUB_TOKEN'{% endif %}
