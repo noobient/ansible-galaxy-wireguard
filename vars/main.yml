@@ -1,0 +1,5 @@
+---
+fw_mq_str: 'Warning: ALREADY_ENABLED: masquerade'
+git_reinit_str: 'Reinitialized existing Git repository'
+git_uptodate_str: 'Everything up-to-date'
+wg_default_svc: /lib/firewalld/services/wireguard.xml
