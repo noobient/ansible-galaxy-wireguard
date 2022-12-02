@@ -20,7 +20,7 @@
     name: bviktor.firewalld
   vars:
     - service: 'wireguard'
-    - port: "{{ wg_port }}/udp"
+    - port: "{{ wg_port | default(wg_default_port) }}/udp"
 
 - name: Enable firewalld masquerade
   shell:
