@@ -1,4 +1,5 @@
-# mandatory options
+# Mandatory options
+
 wg_endpoint={% if inventory_hostname != '127.0.0.1' %}{{ inventory_hostname }}{% else %}{{ ansible_default_ipv4.address }}{% endif %}{{''}}
 wg_ip={{ wg_ip | default('10.10.10.1') }}
 wg_port={{ wg_port | default(wg_default_port) }}
@@ -7,8 +8,9 @@ wg_dns={{ wg_dns | default('1.1.1.1') }}
 # valid tunnel types: split, full
 wg_tunnel='{{ wg_tunnel | default('split') }}'
 
-# optional options
-{% if wg_users is defined %}wg_users='{{ wg_users }}'{% else %}#wg_users='john,jane,jules,juan,jose'{% endif %}
-{% if wg_repo is defined %}wg_repo='{{ wg_repo }}'{% else %}#wg_repo='https://github.com/YOUR/GITHUB/REPO'{% endif %}
+# Optional options
+
+{% if wg_users is defined %}wg_users='{{ wg_users }}'{% else %}#wg_users='john,jane,jules,juan,jose'{% endif %}{{''}}
+{% if wg_repo is defined %}wg_repo='{{ wg_repo }}'{% else %}#wg_repo='https://github.com/YOUR/GITHUB/REPO'{% endif %}{{''}}
 # get your token from https://github.com/settings/tokens
-{% if wg_credential is defined %}wg_credential='{{ wg_credential }}'{% else %}#wg_credential='YOUR_GITHUB_TOKEN'{% endif %}
+{% if wg_credential is defined %}wg_credential='{{ wg_credential }}'{% else %}#wg_credential='YOUR_GITHUB_TOKEN'{% endif %}{{''}}
