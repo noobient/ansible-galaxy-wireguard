@@ -9,7 +9,7 @@
 
 - name: Deploy WireGuard generator
   get_url:
-    src: https://raw.githubusercontent.com/noobient/wireguard-genie/main/src/wg-gen.sh
+    url: https://raw.githubusercontent.com/noobient/wireguard-genie/main/src/wg-gen.sh
     dest: /etc/wireguard/wg-gen.sh
     owner: root
     group: root
