@@ -19,8 +19,8 @@
 - include_role:
     name: bviktor.firewalld
   vars:
-    - service: 'wireguard'
-    - port: "{{ wg_port | default(wg_default_port) }}/udp"
+    service: 'wireguard'
+    port: "{{ wg_port | default(wg_default_port) }}/udp"
 
 - name: Enable firewalld masquerade
   shell:
@@ -32,6 +32,6 @@
 - include_role:
     name: bviktor.firewalld
   vars:
-    - zone: 'wireguard'
-    - interface: 'wg0'
-    - fw_target: 'ACCEPT'
+    zone: 'wireguard'
+    interface: 'wg0'
+    fw_target: 'ACCEPT'

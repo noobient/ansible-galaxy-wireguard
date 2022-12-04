@@ -82,9 +82,9 @@
 - include_role:
     name: bviktor.sysctl
   vars:
-    - file: "{{ item.file }}"
-    - option: "{{ item.option }}"
-    - value: "{{ item.value }}"
+    file: "{{ item.file }}"
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
   loop:
     - { file: '99-wireguard', option: 'net.ipv4.ip_forward', value: '1' }
     - { file: '99-wireguard', option: 'net.ipv6.conf.all.forwarding', value: '1' }
