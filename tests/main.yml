@@ -1,6 +1,14 @@
 ---
 - hosts: 127.0.0.1
   tasks:
+
+    - name: Get Ansible setup
+      command:
+        cmd: ansible -m setup localhost
+      register: ansible_setup
+    - debug:
+        msg: "{{ ansible_setup.stdout_lines }}"
+
     - include_role:
         name: "{{ playbook_dir.split('/')[:-1] | last }}"
       vars:
