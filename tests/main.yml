@@ -1,14 +1,6 @@
 ---
 - hosts: 127.0.0.1
   tasks:
-
-    - name: Get Ansible setup
-      command:
-        cmd: ansible -m setup localhost
-      register: ansible_setup
-    - debug:
-        msg: "{{ ansible_setup.stdout_lines }}"
-
     - include_role:
         name: "{{ playbook_dir.split('/')[:-1] | last }}"
       vars:
@@ -19,3 +11,9 @@
         wg_dns: '9.9.9.9'
         wg_tunnel: 'full'
         wg_users: 'mario,luigi,yoshi'
+    - name: Check resulting wg-gen.conf
+      slurp:
+        src: /etc/wireguard/wg-gen.conf
+      register: wg_gen_conf
+    - debug:
+        msg: "{{ wg_gen_conf.stdout_lines }}"
