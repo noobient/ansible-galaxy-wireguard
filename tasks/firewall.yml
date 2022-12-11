@@ -10,7 +10,7 @@
     state: absent
   register: wg_svc_delete
 
-- name: Reload firewalld
+- name: Reload firewalld # noqa no-handler
   command:
     cmd: firewall-cmd --reload
   when: wg_svc_delete.changed

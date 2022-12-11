@@ -19,7 +19,7 @@
   lineinfile:
     path: /root/.git-credentials
     line: "{{ wg_credential }}"
-    create: yes
+    create: true
     owner: root
     group: root
     mode: '0600'
@@ -31,7 +31,7 @@
     section: credential
     option: helper
     value: store
-    create: yes
+    create: true
     owner: root
     group: root
     mode: '0664'
@@ -43,7 +43,7 @@
     section: "{{ item.section }}"
     option: "{{ item.option }}"
     value: "{{ item.value }}"
-    create: yes
+    create: true
     owner: root
     group: root
     mode: '0664'
@@ -55,10 +55,10 @@
   git:
     repo: "{{ wg_repo }}"
     dest: /etc/wireguard/repo.d
-    force: yes
+    force: true
   when: wg_credential is defined and wg_repo is defined
 
-- name: Create WireGuard config repo
+- name: Create WireGuard config repo # noqa command-instead-of-module
   command:
     cmd: git init /etc/wireguard/repo.d
   register: wg_git_init
@@ -76,7 +76,7 @@
   systemd:
     name: wg-quick@wg0
     state: started
-    enabled: yes
+    enabled: true
 
 # TODO other options https://www.cyberciti.biz/faq/centos-8-set-up-wireguard-vpn-server/
 - include_role:
