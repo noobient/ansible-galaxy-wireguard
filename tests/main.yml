@@ -1,6 +1,16 @@
 ---
 - hosts: 127.0.0.1
   tasks:
+    # test if default values really work
+    - include_role:
+        name: "{{ playbook_dir.split('/')[:-1] | last }}"
+    - name: Check resulting wg-gen.conf
+      slurp:
+        src: /etc/wireguard/wg-gen.conf
+      register: wg_gen_conf
+    - debug:
+        msg: "{{ (wg_gen_conf['content'] | b64decode).split('\n') }}"
+
     - include_role:
         name: "{{ playbook_dir.split('/')[:-1] | last }}"
       vars:
