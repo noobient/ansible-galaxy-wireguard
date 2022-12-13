@@ -16,4 +16,4 @@
         src: /etc/wireguard/wg-gen.conf
       register: wg_gen_conf
     - debug:
-        msg: "{{ wg_gen_conf['content'] | b64decode | split('\n') }}"
+        msg: "{{ (wg_gen_conf['content'] | b64decode).split('\n') }}"
