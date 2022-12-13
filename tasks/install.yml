@@ -5,6 +5,7 @@
     state: latest
   vars:
     packages:
+      - "iproute{% if ansible_os_family == 'Debian' %}2{% endif %}"
       - wireguard-tools
       - qrencode
       - git
