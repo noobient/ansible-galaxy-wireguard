@@ -7,7 +7,3 @@ galaxy_info:
   min_ansible_version: '2.10'
   platforms: []
   galaxy_tags: []
-
-dependencies:
-  - bviktor.firewalld
-  - bviktor.sysctl
