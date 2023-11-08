@@ -22,7 +22,7 @@ This role allows you to install and configure a WireGuard server.
 
 ```yml
 - include_role:
-    name: bviktor.wireguard
+    name: noobient.wireguard
   vars:
     wg_endpoint: 'vpn.killingfloor2.party'
     wg_clients: '6'

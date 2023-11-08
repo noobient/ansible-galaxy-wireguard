@@ -80,7 +80,7 @@
 
 # TODO other options https://www.cyberciti.biz/faq/centos-8-set-up-wireguard-vpn-server/
 - include_role:
-    name: bviktor.sysctl
+    name: noobient.sysctl
   vars:
     file: "{{ item.file }}"
     option: "{{ item.option }}"

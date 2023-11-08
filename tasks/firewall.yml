@@ -1,7 +1,7 @@
 ---
 # make sure firewalld is installed, we need it for the reload
 - include_role:
-    name: bviktor.firewalld
+    name: noobient.firewalld
 
 # we use /etc/firewalld, WG uses /lib/firewalld, causing a conflict, get rid of it
 - name: Disable stock WireGuard firewall service
@@ -17,7 +17,7 @@
 
 # this is for 'clients' reaching the 'server'
 - include_role:
-    name: bviktor.firewalld
+    name: noobient.firewalld
   vars:
     service: 'wireguard'
     port: "{{ wg_port | default(wg_default_port) }}/udp"
@@ -30,7 +30,7 @@
 
 # this is for 'clients' talking to each other
 - include_role:
-    name: bviktor.firewalld
+    name: noobient.firewalld
   vars:
     zone: 'wireguard'
     interface: 'wg0'
