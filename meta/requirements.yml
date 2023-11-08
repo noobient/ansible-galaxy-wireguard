@@ -1,3 +1,3 @@
 ---
-- name: bviktor.firewalld
-- name: bviktor.sysctl
+- name: noobient.firewalld
+- name: noobient.sysctl

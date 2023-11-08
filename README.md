@@ -1,4 +1,4 @@
-# bviktor.wireguard
+# noobient.wireguard
 
 ## Synopsys
 
