@@ -4,10 +4,14 @@
     update_cache: true
   when: ansible_os_family == 'Debian'
 
+- include_tasks: epel.yml
+  when: ansible_os_family == 'RedHat'
+
 - name: Install WireGuard
   package:
     name: "{{ packages }}"
     state: latest
+    update_cache: "{% if noobient_epel is defined and noobient_epel.changed %}true{% else %}false{% endif %}"
   vars:
     packages:
       - "iproute{% if ansible_os_family == 'Debian' %}2{% endif %}"
